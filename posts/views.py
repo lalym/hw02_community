@@ -4,12 +4,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
 
-
 def index(request):
-# одна строка вместо тысячи слов на SQL
     latest = Post.objects.all()[:11]
     # собираем тексты постов в один, разделяя новой строкой
-    return render(request, "index.html", {"posts" : latest})
+    return render(request, "index.html", {"posts": latest})
+
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
